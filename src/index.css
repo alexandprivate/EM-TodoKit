@@ -1,14 +1,93 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: #777;
+  font-size: 18px;
+  padding-bottom: 40px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+h1 {
+  font-style: italic;
+  color: #b2bec3;
+  line-height: 20px;
+  font-size: 28px;
+  margin-top: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h1 i {
+  display: block;
+  width: 100%;
+  color: #00b894;
+  margin-bottom: 15px;
+}
+
+input {
+  position: sticky!important;
+  top: 100px;
+  width: 80%;
+  max-width: 600px;
+  padding: 10px;
+  border: solid 1px #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+  z-index: 99;
+}
+
+input:hover,
+input:focus {
+  border-color: #00b894;
+  outline: none;
+  box-shadow: none;
+}
+
+input::placeholder {
+  font-style: italic;
+  color: #ccc;
+}
+
+.list-item {
+  position: relative;
+  display: block;
+  width: 80%;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin: 0 auto 5px auto;
+  padding: 15px 50px 15px 15px;
+  background: #fafafa;
+  text-align: left;
+  border-radius: 3px;
+  border: solid 1px #e5e5e5;
+}
+
+.list-item button {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color:#ccc;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+}
+
+.list-item button:hover {
+  color:#00b894;
+}
+
+.list-item button i {
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+img {
+  display: block;
+  height: 240px;
+  margin: 0 auto 30px auto;
 }
