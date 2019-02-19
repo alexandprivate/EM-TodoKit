@@ -6,11 +6,12 @@ const Form = props => (
     autoComplete="off"
   >
     <input
+      className={props.theme}
       type="text"
       value={props.value}
       onChange={props.onChange}
       id="todoInput"
-      placeholder="TODO something..."
+      placeholder="TO-DO something..."
     />
   </form>
 );

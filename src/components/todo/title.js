@@ -1,9 +1,9 @@
 import React from "react";
-const todoIcon = <i className="material-icons">assignment_turned_in</i>;
+const todoIcon = <i className="icon-check"></i>;
 
 const Title = () => (
   <h1>
-    {todoIcon}EM todokit
+    {todoIcon}EM <span>to-do</span> kit
   </h1>
 );
 

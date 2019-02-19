@@ -1,10 +1,10 @@
 import React, {Fragment} from 'react'
 import pic from '../../pic.svg'
 
-const Empty = () => (
+const Empty = props => (
   <Fragment>
     <img src={pic} alt="" />
-    <p style={{color: "#ccc"}}>You are anything but lazzy! Now go and learn react champ!</p>
+    <p style={{ color: `${props.theme === 'light' ? '#ccc' : '#666' }`}}>You are anything but lazzy! Now go and learn react champ!</p>
   </Fragment>
 )
 
