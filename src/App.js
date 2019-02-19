@@ -75,6 +75,7 @@ class App extends Component {
           theme={theme}
           setTheme={this.setTheme}
           showingDone={showingDone}
+          todosDone={todosDone}
         />
         <span className={`bg-cover ${theme}`}></span>
       </Fragment>
