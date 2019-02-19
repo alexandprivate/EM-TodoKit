@@ -34,19 +34,20 @@ input {
   top: 100px;
   width: 80%;
   max-width: 600px;
-  padding: 10px;
-  border: solid 1px #ccc;
-  border-radius: 3px;
+  padding: 10px 0px;
+  border-top: none; 
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 2px #ccc;
   box-sizing: border-box;
   font-size: 18px;
   color: #666;
   margin-bottom: 20px;
   z-index: 99;
-  background: #fff;
+  background: transparent;
 }
 
 input.dark {
-  background: #444;
   border-color: #777;
   color: #ccc
 }
@@ -84,7 +85,7 @@ input::placeholder {
 .list-item.dark {
   background: #666;
   border-color: #888;
-  color: #ccc;
+  color: #fafafa;
 }
 
 .list-item button {
@@ -109,15 +110,20 @@ input::placeholder {
   vertical-align: middle;
 }
 
+.item-done {
+  text-decoration: line-through;
+}
+
 img {
   display: block;
-  height: 240px;
-  margin: 0 auto 30px auto;
+  width: 80%;
+  max-width: 360px;
+  margin: 0px auto 20px auto;
 }
 
 .theme-selector {
   position: relative;
-  margin: 30px auto;
+  margin: 0px auto 20px auto;
   background: #00b894;
   color: white;
   border: none;
@@ -144,4 +150,33 @@ img {
 
 .bg-cover.dark {
   background: #222;
+}
+
+.cathegories {
+  display: block;
+  position: relative;
+  height: 35px;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+  background: red;
+}
+
+.cathegories button {
+  float: right;
+}
+
+.show-dond-pending {
+  display: block;
+  font-style: italic;
+  font-size: 13px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+
+.empty-p {
+  max-width: 80%;
+  text-align: center; 
+  margin: 0 auto 20px auto;
 }

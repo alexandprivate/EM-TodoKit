@@ -11,7 +11,7 @@ const Form = props => (
       value={props.value}
       onChange={props.onChange}
       id="todoInput"
-      placeholder="TO-DO something..."
+      placeholder="To-Do Something..."
     />
   </form>
 );

@@ -5,6 +5,7 @@ const iconMoon = <i className="icon-moon"></i>;
 const Theme = props => (
   <>
     <button
+      style={{marginTop: `${props.showingDone ? '20px': '0px'}`}}
       className={`theme-selector ${props.theme}`}
       onClick={props.setTheme}>
       {props.theme === 'light' ? iconMoon : iconSun} {props.theme === 'light' ? 'Dark' : 'Light'} theme

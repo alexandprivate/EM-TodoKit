@@ -6,8 +6,10 @@ const List = props => (
   <Fragment>
     {props.items.map((item, index) =>
       <div key={index} className={`list-item ${props.theme}`}>
-        <span>{item}</span>
-        <button onClick={props.onDone}>{checkIcon}</button>
+        <span className={props.isDone ? 'item-done' : ''}>{item}</span>
+        {!props.isDone &&
+          <button onClick={() => props.onDone(index)}>{checkIcon}</button>
+        }
       </div>
     )}
   </Fragment>

@@ -4,7 +4,7 @@ import pic from '../../pic.svg'
 const Empty = props => (
   <Fragment>
     <img src={pic} alt="" />
-    <p style={{ color: `${props.theme === 'light' ? '#ccc' : '#666' }`}}>You are anything but lazzy! Now go and learn react champ!</p>
+    <p className="empty-p" style={{color: `${props.theme === 'light' ? '#ccc' : '#666' }`}}>You are anything but lazzy! Now go and learn react champ!</p>
   </Fragment>
 )
 
