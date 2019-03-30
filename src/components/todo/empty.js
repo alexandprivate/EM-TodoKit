@@ -7,7 +7,7 @@ const Empty = (props) => {
   return (
     <Fragment>
       <img src={pic} alt="" />
-      <p className="empty-p" style={{ color: `${theme === 'light' ? '#ccc' : '#666'}` }}>You are anything but lazzy!<br/>Now go and learn react champ!</p>
+      <p className="empty-p" style={{ color: `${theme === 'light' ? '#ccc' : '#666'}` }}>{props.message}</p>
     </Fragment>
   )
 }

@@ -9,12 +9,11 @@ import Theme from './components/todo/theme'
 const App = () => {
   return (
     <TodoProvider>
-      <Cover>
-        <Title />
-        <Form />
-        <ListToRender />
-        <Theme />
-      </Cover>
+      <Cover />
+      <Title />
+      <Form />
+      <ListToRender />
+      <Theme />
     </TodoProvider>
   );
 }

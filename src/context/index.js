@@ -37,6 +37,7 @@ class TodoProvider extends Component {
           onChange: this.onChange,
           addTodo: this.addTodo,
           onDone: this.onDone,
+          onUnDone: this.onUnDone,
         }}>
           {this.props.children}
         </Provider>
@@ -88,6 +89,19 @@ class TodoProvider extends Component {
     this.setState({
       todos,
       todosDone: [newDone, ...this.state.todosDone]
+    }, () => {
+      localStorage.setItem('emtk', JSON.stringify(this.state.todos));
+      localStorage.setItem('emtkd', JSON.stringify(this.state.todosDone))
+    });
+  }
+
+  onUnDone = todo => {
+    let { todosDone } = this.state; 
+    let newDone = todosDone[todo]
+    todosDone.splice(todo, 1);
+    this.setState({
+      todos: [newDone, ...this.state.todos],
+      todosDone,
     }, () => {
       localStorage.setItem('emtk', JSON.stringify(this.state.todos));
       localStorage.setItem('emtkd', JSON.stringify(this.state.todosDone))

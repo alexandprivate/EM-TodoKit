@@ -16,19 +16,11 @@ h1 {
   margin-top: 50px;
   font-weight: 900;
   text-transform: uppercase;
-  margin-bottom: 0px;
+  margin-bottom: 30px;
 }
 
 h1 span {
   color: #00b894
-}
-
-h1 + small {
-  display: block;
-  margin-top: 5px;
-  font-style: italic;
-  font-size: 12px;
-  margin-bottom: 15px;
 }
 
 h1 i {
@@ -42,7 +34,7 @@ input {
   position: sticky!important;
   top: 100px;
   width: 80%;
-  max-width: 600px;
+  max-width: 800px;
   padding: 10px 0px;
   border-top: none; 
   border-left: none;
@@ -74,14 +66,14 @@ input:focus {
 
 input::placeholder {
   font-style: italic;
-  color: #ccc;
+  color: #999;
 }
 
 .list-item {
   position: relative;
   display: block;
   width: 80%;
-  max-width: 600px;
+  max-width: 800px;
   box-sizing: border-box;
   margin: 0 auto 5px auto;
   padding: 15px 50px 15px 15px;
@@ -132,7 +124,7 @@ img {
 
 .theme-selector {
   position: relative;
-  margin: 0px auto 20px auto;
+  margin: 20px auto 0px auto;
   background: #00b894;
   color: white;
   border: none;
@@ -188,4 +180,9 @@ img {
   max-width: 80%;
   text-align: center; 
   margin: 0 auto 20px auto;
+}
+
+small {
+  display: block;
+  margin-top: 20px;
 }

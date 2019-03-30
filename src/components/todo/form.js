@@ -15,7 +15,7 @@ const Form = () => {
         onChange={onChange}
         autoFocus={true}
         id="todoInput"
-        placeholder="To-Do Something..."
+        placeholder="Let's create a TO-DO..."
       />
     </form>
   )
