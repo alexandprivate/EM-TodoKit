@@ -5,15 +5,17 @@ const iconMoon = <i className="icon-moon"></i>;
 
 const Theme = () => {
   const { showingDone, todosDone, theme, setTheme } = useContext(TodoContext);
+  let styles = {
+    marginTop: `${(showingDone || (!showingDone && todosDone.length === 0)) ? '20px' : '0px'}`
+  }
   return (
-    <>
-      <button
-        style={{ marginTop: `${(showingDone || (!showingDone && todosDone.length === 0)) ? '20px' : '0px'}` }}
-        className={`theme-selector ${theme}`}
-        onClick={setTheme}>
-        {theme === 'light' ? iconMoon : iconSun} Use {theme === 'light' ? 'dark' : 'light'} theme
-      </button>
-    </>
+    <button
+      style={styles}
+      className={`theme-selector ${theme}`}
+      onClick={setTheme}
+    >
+      {theme === 'light' ? iconMoon : iconSun} Use {theme === 'light' ? 'dark' : 'light'} theme
+    </button>
   )
 }
 
