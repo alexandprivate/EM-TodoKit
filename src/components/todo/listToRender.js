@@ -13,7 +13,7 @@ const ListToRender = () => {
       {todosDone.length > 0 &&
         <small onClick={showCompleted} style={{ cursor: 'pointer' }}>
           {showingDone ? 'Hide' : 'Show'} completed
-          </small>
+        </small>
       }
     </>
   )
