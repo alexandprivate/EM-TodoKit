@@ -3,16 +3,16 @@ import { TodoContext } from '../../context';
 import List from './list'
 
 const ListToRender = () => {
-  const { todos, todosDone, showingDone, showCompleted } = useContext(TodoContext);
+  const { todos, todosCompleted, showCompleted, changeLists} = useContext(TodoContext);
   return (
     <>
-      {!showingDone
+      {!showCompleted
         ? <List list={todos} />
-        : <List list={todosDone} isDone />
+        : <List list={todosCompleted} isDone />
       }
-      {todosDone.length > 0 &&
-        <small onClick={showCompleted} style={{ cursor: 'pointer' }}>
-          {showingDone ? 'Hide' : 'Show'} completed
+      {todosCompleted.length > 0 &&
+        <small onClick={changeLists} style={{ cursor: 'pointer' }}>
+          {showCompleted ? 'Hide' : 'Show'} completed
         </small>
       }
     </>

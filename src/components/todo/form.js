@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { TodoContext } from '../../context'
 
 const Form = () => {
-  const { theme, newTodo, addTodo, onChange } = useContext(TodoContext)
+  const { theme, addTodo, newTodo, setNewTodo } = useContext(TodoContext)
+  
   return (
     <form
       onSubmit={addTodo}
@@ -12,7 +13,7 @@ const Form = () => {
         className={theme}
         type="text"
         value={newTodo}
-        onChange={onChange}
+        onChange={(e) => setNewTodo(e.target.value)}
         autoFocus={true}
         id="todoInput"
         placeholder="Let's create a TO-DO..."

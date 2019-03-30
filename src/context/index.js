@@ -1,113 +1,83 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 
 let TodoContext;
 const { Provider, Consumer } = TodoContext = React.createContext();
 
-class TodoProvider extends Component {
+const TodoProvider = (props) => {
 
-  state = {
-    todos: [],
-    todosDone: [],
-    newTodo: '',
-    theme: 'light',
-    showingDone: false,
+  const [theme, setTheme] = useState('dark');
+  const [todos, setTodo] = useState([]);
+  const [todosCompleted, setTodoCompleted] = useState([]);
+  const [newTodo, setNewTodo] = useState('');
+  const [showCompleted, setShowCompleted] = useState(false)
+
+  useEffect(() => { onLoad() }, [])
+
+  return (
+    <div>
+      <Provider value={{
+        theme,
+        todos,
+        setTodo,
+        todosCompleted,
+        setTodoCompleted,
+        newTodo,
+        setNewTodo,
+        addTodo,
+        showCompleted,
+        changeLists,
+        changeTheme,
+        onDone,
+        onUnDone
+      }}>
+        {props.children}
+      </Provider>
+    </div>
+  )
+
+  function onLoad() {
+    let localtheme = localStorage.getItem('emtk-theme');
+    let localtodos = localStorage.getItem('emtk');
+    let localTodosCompleted = localStorage.getItem('emtkd');
+    setTodo(localtodos !== null ? JSON.parse(localtodos) : todos);
+    setTodoCompleted(localTodosCompleted !== null ? JSON.parse(localTodosCompleted) : todosCompleted)
+    setTheme(localtheme !== null ? localtheme : theme);
   }
 
-  componentDidMount = () => {
-    let todos = localStorage.getItem('emtk');
-    let theme = localStorage.getItem('emtk-theme');
-    let todosDone = localStorage.getItem('emtkd')
-    this.setState({
-      todos: todos !== null ? JSON.parse(todos) : [],
-      todosDone: todosDone !== null ? JSON.parse(todosDone) : [],
-      theme: theme !== null ? theme : 'dark'
-    })
-    this.todosToRender();
+  function changeTheme() {
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
-  render() {
-
-    return (
-      <div>
-        <Provider value={{
-          ...this.state,
-          showCompleted: this.showCompleted,
-          todosToRender: this.todosToRender,
-          setTheme: this.setTheme,
-          onChange: this.onChange,
-          addTodo: this.addTodo,
-          onDone: this.onDone,
-          onUnDone: this.onUnDone,
-        }}>
-          {this.props.children}
-        </Provider>
-      </div>
-    )
+  function changeLists() {
+    setShowCompleted(!showCompleted)
   }
 
-  showCompleted = () => {
-    this.setState({ showingDone: !this.state.showingDone })
-  }
-
-  todosToRender = () => {
-    return this.state.showingDone
-      ? this.state.todosDone
-      : this.state.todos
-  }
-
-  setTheme = () => {
-    const { theme } = this.state;
-    this.setState({
-      theme: theme === 'light' ? 'dark' : 'light'
-    }, () => {
-      localStorage.setItem('emtk-theme', this.state.theme)
-    })
-  }
-
-  onChange = e => {
-    this.setState({
-      newTodo: e.target.value
-    });
-  };
-
-  addTodo = e => {
+  function addTodo(e) {
     e.preventDefault();
-    this.setState({
-      todos: [this.state.newTodo, ...this.state.todos],
-      newTodo: "",
-      showingDone: false,
-    }, () => {
-      localStorage.setItem('emtk', JSON.stringify(this.state.todos))
-    });
-    if (this.state.newTodo.trim() === "") return;
+    let newlist = [newTodo, ...todos]
+    setTodo(newlist);
+    setNewTodo('')
   }
 
-  onDone = todo => {
-    let { todos } = this.state;
-    let newDone = todos[todo];
-    todos.splice(todo, 1);
-    this.setState({
-      todos,
-      todosDone: [newDone, ...this.state.todosDone]
-    }, () => {
-      localStorage.setItem('emtk', JSON.stringify(this.state.todos));
-      localStorage.setItem('emtkd', JSON.stringify(this.state.todosDone))
-    });
+  function onDone(index) {
+    let newDone = todos[index];
+    todos.splice(index, 1);
+    setTodo(todos)
+    setTodoCompleted([newDone, ...todosCompleted])
+    localStorage.setItem('emtk', JSON.stringify(todos));
+    localStorage.setItem('emtkd', JSON.stringify(todosCompleted))
   }
 
-  onUnDone = todo => {
-    let { todosDone } = this.state; 
-    let newDone = todosDone[todo]
-    todosDone.splice(todo, 1);
-    this.setState({
-      todos: [newDone, ...this.state.todos],
-      todosDone,
-    }, () => {
-      localStorage.setItem('emtk', JSON.stringify(this.state.todos));
-      localStorage.setItem('emtkd', JSON.stringify(this.state.todosDone))
-    });
+  function onUnDone(index) {
+    let newDone = todosCompleted[index];
+    todosCompleted.splice(index, 1);
+    setTodo([newDone, ...todos])
+    setTodoCompleted(todosCompleted)
+    localStorage.setItem('emtk', JSON.stringify(todos));
+    localStorage.setItem('emtkd', JSON.stringify(todosCompleted))
   }
 
 }
+
 
 export { TodoProvider, Consumer as TodoConsumer, TodoContext };

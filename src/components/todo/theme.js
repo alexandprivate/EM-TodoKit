@@ -5,7 +5,7 @@ const iconSun = <i className="icon-sun"></i>;
 const iconMoon = <i className="icon-moon"></i>;
 
 const Theme = () => {
-  const { theme, setTheme } = useContext(TodoContext);
+  const { theme, changeTheme } = useContext(TodoContext);
   let styles = {
     marginTop: '20px'
   }
@@ -14,7 +14,7 @@ const Theme = () => {
       <button
         style={styles}
         className={`theme-selector ${theme}`}
-        onClick={setTheme}
+        onClick={changeTheme}
       >
         {theme === 'light' ? iconMoon : iconSun} Use {theme === 'light' ? 'dark' : 'light'} theme
       </button>
