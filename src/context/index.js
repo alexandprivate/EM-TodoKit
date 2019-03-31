@@ -56,7 +56,8 @@ const TodoProvider = (props) => {
     e.preventDefault();
     let newlist = [newTodo, ...todos]
     setTodo(newlist);
-    setNewTodo('')
+    setNewTodo('');
+    localStorage.setItem('emtk', JSON.stringify(newlist));
   }
 
   function onDone(index) {
