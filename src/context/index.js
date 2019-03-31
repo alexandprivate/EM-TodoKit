@@ -45,7 +45,8 @@ const TodoProvider = (props) => {
   }
 
   function changeTheme() {
-    setTheme(theme === 'light' ? 'dark' : 'light')
+    setTheme(theme === 'light' ? 'dark' : 'light');
+    localStorage.setItem('emtk-theme', theme);
   }
 
   function changeLists() {
