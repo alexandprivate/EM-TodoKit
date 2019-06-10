@@ -1,15 +1,12 @@
-import React, { Fragment, useContext } from 'react'
-import pic from '../../pic.svg'
-import { TodoContext } from '../../context'
+import React from "react";
+import pic from "../../pic.svg";
 
-const Empty = (props) => {
-  const { theme } = useContext(TodoContext)
+const Empty = props => {
   return (
-    <Fragment>
+    <>
       <img src={pic} alt="" />
-      <p className="empty-p" style={{ color: `${theme === 'light' ? '#ccc' : '#666'}` }}>{props.message}</p>
-    </Fragment>
-  )
-}
+    </>
+  );
+};
 
 export default Empty;

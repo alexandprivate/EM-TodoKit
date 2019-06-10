@@ -1,6 +1,6 @@
 import React from "react";
-const todoIcon = <i className="icon-check"></i>;
+const todoIcon = <i className="icon-check" />;
 
-const Title = () => <h1> {todoIcon}<span>to-do</span> Kit </h1>
+const Title = () => <h1> {todoIcon} to-do</h1>;
 
 export default Title;

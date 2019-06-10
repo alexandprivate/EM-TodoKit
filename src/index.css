@@ -1,27 +1,91 @@
 @import url('./fontello.css');
 
 body {
-  font-family: "Roboto", sans-serif!important;
+  font-family: "Roboto", sans-serif !important;
   text-align: center;
   color: #777;
   font-size: 18px;
   padding-bottom: 40px;
 }
 
-h1 {
-  font-style: italic;
+.header {
+  position: sticky;
+  padding-top: 20px;
+  top: 0px;
+  z-index: 9;
+  background-color: #f7f7f7;
+  transition: all .2s ease;
+}
+
+.header.dark {
+  background-color: #222;
+}
+
+.header h1 {
   font-family: inherit;
-  color: #b2bec3;
+  color: #00b894;
   line-height: 20px;
   font-size: 28px;
-  margin-top: 50px;
-  font-weight: 900;
+  margin-top: 0px;
   text-transform: uppercase;
   margin-bottom: 30px;
 }
 
-h1 span {
-  color: #00b894
+.switcher {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  /* background-color: #fff; */
+}
+
+.switcher button {
+  display: inline-block;
+  width: 50%;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 12px 0px;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: 0;
+  margin-top: -2px;
+  border: solid 1px #00b894
+}
+
+.switcher button:first-child {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px
+}
+
+.switcher button:last-child {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px
+}
+
+.switcher button.active {
+  color: white;
+  background: #00b894;
+
+  pointer-events: none;
+}
+
+.switcher button.inactive {
+  color: #00b894;
+  background-color: #f7f7f7;
+}
+
+.switcher button.dark {
+  color: #ccc;
+  border-color: #444;
+  background-color: #444;
+}
+
+.switcher button.inactive.dark {
+  color: #777;
+  background-color: #222;
 }
 
 h1 i {
@@ -33,12 +97,12 @@ h1 i {
 
 input {
   font-family: inherit;
-  position: sticky!important;
+  position: sticky !important;
   top: 100px;
   width: 80%;
   max-width: 800px;
   padding: 10px 0px;
-  border-top: none; 
+  border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: solid 2px #ccc;
@@ -49,6 +113,7 @@ input {
   z-index: 99;
   font-size: 28px;
   background: transparent;
+  transition: all .2s ease;
 }
 
 input.dark {
@@ -57,7 +122,7 @@ input.dark {
 }
 
 input.dark::placeholder {
-  color: #888
+  color: #333
 }
 
 input:hover,
@@ -69,7 +134,7 @@ input:focus {
 
 input::placeholder {
   /* font-style: italic; */
-  color: #999;
+  color: #ddd;
 }
 
 .list-item {
@@ -86,19 +151,19 @@ input::placeholder {
   text-align: left;
   border-radius: 6px;
   color: #999;
-  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.1);
-  transition: all .2s ease;
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.1);
+  transition: all .15s linear;
 }
 
 .list-item:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .list-item.dark {
   background: #333;
   border-color: #888;
   color: #888;
-  box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.5)
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.5)
 }
 
 .list-item button {
@@ -107,7 +172,7 @@ input::placeholder {
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
-  color:#ccc;
+  color: #ccc;
   background: transparent;
   border: none;
   outline: none;
@@ -115,7 +180,7 @@ input::placeholder {
 }
 
 .list-item button:hover {
-  color:#00b894;
+  color: #00b894;
 }
 
 .list-item button i {
@@ -131,7 +196,7 @@ img {
   display: block;
   width: 80%;
   max-width: 360px;
-  margin: 0px auto 20px auto;
+  margin: 20px auto;
 }
 
 .theme-selector {
@@ -158,7 +223,7 @@ img {
   z-index: -1;
   height: 100%;
   width: 100%;
-  background: #fff;
+  background: #f7f7f7;
   transition: all .2s ease;
 }
 
@@ -191,7 +256,7 @@ img {
 
 .empty-p {
   max-width: 80%;
-  text-align: center; 
+  text-align: center;
   margin: 0 auto 20px auto;
 }
 
