@@ -2,4 +2,4 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## A simple react TO-DO list with hooks and context
 
-Check live demo [here](https://todokit.netlify.com/)
+Check live demo [here](https://algrano-todo.netlify.com/)
