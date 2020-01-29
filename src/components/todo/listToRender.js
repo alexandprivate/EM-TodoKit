@@ -11,11 +11,6 @@ const ListToRender = () => {
       ) : (
         <List list={todosCompleted} isDone />
       )}
-      {/* {todosCompleted.length > 0 &&
-        <small onClick={changeLists} style={{ cursor: 'pointer' }}>
-          {showCompleted ? 'Hide' : 'Show'} completed
-        </small>
-      } */}
     </>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 let TodoContext;
-const { Provider, Consumer } = (TodoContext = React.createContext());
+const { Provider } = (TodoContext = React.createContext());
 
 const TodoProvider = props => {
   const [theme, setTheme] = useState("dark");
@@ -87,4 +87,4 @@ const TodoProvider = props => {
   }
 };
 
-export { TodoProvider, Consumer as TodoConsumer, TodoContext };
+export { TodoProvider, TodoContext };
