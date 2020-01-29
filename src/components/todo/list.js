@@ -3,10 +3,6 @@ import { TodoContext } from "../../context";
 
 const checkIcon = <i className="icon-check"></i>;
 const checkIconEmpty = <i className="icon-check-empty"></i>;
-const messages = [
-  "Your list of pending TO-DOs is empty.",
-  "Your list of donde TO-DOs is empty."
-];
 
 const List = props => {
   const { theme, onDone, onUnDone } = useContext(TodoContext);
