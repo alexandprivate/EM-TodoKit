@@ -13,12 +13,12 @@ const Switcher = () => {
     <div className="switcher">
       <Button
         btnClass={`${!showCompleted ? "active" : "inactive"} ${theme}`}
-        label="My Tasks"
+        label="To-do"
         onClick={changeLists}
       />
       <Button
         btnClass={`${showCompleted ? "active" : "inactive"} ${theme}`}
-        label="Done Tasks"
+        label="Completed"
         onClick={changeLists}
       />
     </div>
